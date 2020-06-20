@@ -1,6 +1,11 @@
 <template>
+    <div>
+        <a style="text-align: center;font-size: 2em;display: block" class="link--mallki mallki-text" href="#" @click.prevent=" ">
+            添加博客
+            <span :data-letters="text"></span>
+            <span :data-letters="text"></span>
+        </a>
     <div class="add-blog">
-        <h1 style="text-align: center;font-size: 2em">添加博客</h1>
         <h3 v-if="show">您的博客添加成功! 3秒后回到主页...</h3>
         <form v-if="!show">
             <label>博客标题:</label>
@@ -33,12 +38,18 @@
             <p>作者:<span v-if="form.author">{{form.author}}</span></p>
 
         </div>
-    </div>
+    </div> </div>
 </template>
 
 <script>
     export default {
         name: "AddBlog",
+        props:{
+            text:{
+              type:String,
+                default:'添加博客'
+            }
+        },
         data() {
             return {
                 form: {
@@ -73,6 +84,8 @@
 </script>
 
 <style scoped>
+    @import "../assets/link--mall.css";
+
     .add-blog * {
         box-sizing: border-box;
         padding: 10px;
@@ -153,4 +166,6 @@
     p > span {
         background: #eee;
     }
+
+
 </style>
